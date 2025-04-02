@@ -1,0 +1,62 @@
+<mat-spinner *ngIf="isLoading" style="margin: 40px auto; display: block;"></mat-spinner>
+
+<div class="launch-list" *ngIf="!isLoading">
+  <mat-card
+    *ngFor="let launch of launches"
+    style="margin-bottom: 20px; cursor: pointer;"
+    [routerLink]="['/mission', launch.flight_number]"
+  >
+    <mat-card-header>
+      <mat-card-title>
+        {{ launch.mission_name }} ({{ launch.launch_year }})
+      </mat-card-title>
+      <mat-card-subtitle>
+        Flight #{{ launch.flight_number }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <img
+      mat-card-image
+      [src]="launch.links.mission_patch_small"
+      alt="Mission Patch"
+    />
+
+    <mat-card-content>
+      <p>{{ launch.details || 'No details available.' }}</p>
+      <p>
+        <strong>Rocket:</strong>
+        {{ launch.rocket.rocket_name }} ({{ launch.rocket.rocket_type }})
+      </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <a
+        mat-button
+        *ngIf="launch.links.article_link"
+        [href]="launch.links.article_link"
+        target="_blank"
+        (click)="$event.stopPropagation()"
+      >
+        Article
+      </a>
+      <a
+        mat-button
+        *ngIf="launch.links.wikipedia"
+        [href]="launch.links.wikipedia"
+        target="_blank"
+        (click)="$event.stopPropagation()"
+      >
+        Wikipedia
+      </a>
+      <a
+        mat-button
+        *ngIf="launch.links.video_link"
+        [href]="launch.links.video_link"
+        target="_blank"
+        (click)="$event.stopPropagation()"
+      >
+        Video
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>

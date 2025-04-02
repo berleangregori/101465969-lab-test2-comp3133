@@ -1,0 +1,9 @@
+<mat-form-field appearance="outline" class="full-width">
+    <mat-label>Filter by Launch Year</mat-label>
+    <mat-select [(ngModel)]="selectedYear" (selectionChange)="filterByYear()">
+      <mat-option *ngFor="let year of years" [value]="year">
+        {{ year }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  

@@ -1,12 +1,31 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MissionfilterComponent } from './components/missionfilter/missionfilter.component';
+import { MissionlistComponent } from './components/missionlist/missionlist.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MissionfilterComponent,
+    MissionlistComponent
+  ],
+  template: `
+    <mat-toolbar color="primary">
+      🚀 SpaceX Mission Explorer
+    </mat-toolbar>
+
+    <app-missionfilter (yearSelected)="onYearSelected($event)"></app-missionfilter>
+    <app-missionlist [selectedYear]="selectedYear"></app-missionlist>
+  `
 })
 export class AppComponent {
-  title = '101465969-lab-test2-comp3133';
+  selectedYear: string | null = null;
+
+  onYearSelected(year: string) {
+    this.selectedYear = year;
+  }
 }
