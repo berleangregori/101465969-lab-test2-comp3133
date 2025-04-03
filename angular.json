@@ -13,30 +13,35 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/101465969-lab-test2-comp3133",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "@angular/material/prebuilt-themes/azure-blue.css",
-              "src/styles.css"
-            ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
-          },
+  "outputPath": "dist/101465969-lab-test2-comp3133",
+  "index": "src/index.html",
+  "browser": "src/main.ts",
+  "polyfills": [
+    "zone.js"
+  ],
+  "tsConfig": "tsconfig.app.json",
+  "assets": [
+    {
+      "glob": "**/*",
+      "input": "public"
+    }
+  ],
+  "styles": [
+    "@angular/material/prebuilt-themes/azure-blue.css",
+    "src/styles.css"
+  ],
+  "scripts": [],
+  "server": "src/main.server.ts",
+  "outputMode": "server",
+  "ssr": {
+    "entry": "src/server.ts"
+  },
+  "prerender": false  
+}
+
+          
+          ,
+          
           "configurations": {
             "production": {
               "budgets": [
